@@ -82,4 +82,4 @@ document.querySelectorAll('.steps-grid .step').forEach((step, index) => {
 // gtag('js', new Date());
 // gtag('config', 'GA_MEASUREMENT_ID');
 
-console.log('English for Techies website loaded! 🚀');
+console.log('English for Techies website loaded!');

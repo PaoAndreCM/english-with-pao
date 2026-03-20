@@ -1,8 +1,8 @@
 :root {
-    /* Color Palette - Professional Tech Blue with Warm Accents */
-    --primary-color: #0A4D68;
-    --accent-color: #FF6B35;
-    --secondary-color: #05BFDB;
+    /* Color Palette - Purple with Cyan Tech Accents */
+    --primary-color: #a47daa;
+    --accent-color: #00d9ff;
+    --secondary-color: #7c3aed;
     --text-dark: #1A1A2E;
     --text-light: #4A5568;
     --bg-light: #F8FAFC;
@@ -10,17 +10,18 @@
     --border-color: #E2E8F0;
     
     /* Typography */
-    --font-display: 'DM Serif Display', serif;
-    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-display: 'Source Sans 3', sans-serif;
+    --font-body: 'Source Sans 3', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
     
     /* Spacing */
     --section-padding: 5rem 0;
     --container-max: 1200px;
     
     /* Shadows */
-    --shadow-sm: 0 2px 8px rgba(10, 77, 104, 0.08);
-    --shadow-md: 0 4px 16px rgba(10, 77, 104, 0.12);
-    --shadow-lg: 0 8px 32px rgba(10, 77, 104, 0.16);
+    --shadow-sm: 0 2px 8px rgba(164, 125, 170, 0.08);
+    --shadow-md: 0 4px 16px rgba(164, 125, 170, 0.12);
+    --shadow-lg: 0 8px 32px rgba(164, 125, 170, 0.16);
     
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -308,7 +309,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .snippet-content {
     padding: 1.5rem;
-    font-family: 'Courier New', monospace;
+    font-family: var(--font-mono);
     font-size: 0.95rem;
     line-height: 1.6;
     overflow-x: auto;
@@ -318,6 +319,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #A8B2D1;
     white-space: pre;
     display: block;
+    font-family: var(--font-mono);
 }
 
 .comment { color: #6A9955; }
@@ -377,10 +379,51 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .highlight-box {
-    background: linear-gradient(135deg, #FFF5F0 0%, #FFE8E0 100%);
+    background: var(--bg-light);
     padding: 1.5rem;
     border-radius: 8px;
     border-left: 4px solid var(--accent-color);
+}
+
+/* Who Is This For Section */
+.who-is-this-for {
+    padding: var(--section-padding);
+    background: white;
+    text-align: center;
+}
+
+.who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.who-item {
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid transparent;
+}
+
+.who-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.who-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+    text-align: left;
+}
+
+.who-item strong {
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 /* Modules Section */
@@ -412,15 +455,9 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem;
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
-    transition: var(--transition);
     border: 2px solid transparent;
     position: relative;
-}
-
-.module-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--secondary-color);
+    cursor: default;
 }
 
 .module-card.featured {
@@ -442,14 +479,11 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50px;
     font-size: 0.85rem;
     font-weight: 600;
-}
-
-.module-card.advanced .module-badge {
-    background: var(--primary-color);
+    font-family: var(--font-mono);
 }
 
 .module-icon {
-    font-family: var(--font-display);
+    font-family: var(--font-mono);
     font-size: 3rem;
     color: var(--secondary-color);
     margin-bottom: 1rem;
@@ -504,7 +538,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .steps-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 3rem;
     margin-top: 3rem;
 }
@@ -522,7 +556,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
+    font-family: var(--font-mono);
     font-size: 1.5rem;
     margin: 0 auto 1.5rem;
 }
@@ -554,19 +588,13 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: var(--shadow-sm);
-    transition: var(--transition);
     border: 2px solid transparent;
     position: relative;
-}
-
-.pricing-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    cursor: default;
 }
 
 .pricing-card.featured {
     border-color: var(--accent-color);
-    transform: scale(1.05);
 }
 
 .pricing-badge {
@@ -650,6 +678,43 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-light);
     margin-top: 2rem;
     font-size: 0.95rem;
+}
+
+/* FAQ Section */
+.faq {
+    padding: var(--section-padding);
+    background: var(--bg-light);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.faq-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.faq-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.faq-item strong {
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
 /* Contact Section */
@@ -816,12 +881,20 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
     
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .pricing-grid {
         grid-template-columns: 1fr;
     }
     
     .pricing-card.featured {
         transform: scale(1);
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
     }
     
     .footer-content {
@@ -904,3 +977,40 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1rem;
 }
 
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.checkbox-label:hover {
+    background-color: var(--bg-light);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+
+/* Tablet breakpoint for steps grid 2x2 */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
