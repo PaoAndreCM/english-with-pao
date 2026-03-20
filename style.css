@@ -117,6 +117,39 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: var(--shadow-md);
 }
 
+/* Hamburger Menu Button (hidden on desktop) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* Hero Section */
 .hero {
     padding: 8rem 2rem 4rem;
@@ -195,13 +228,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-title .highlight {
+    font-family: var(--font-mono);
     font-size: clamp(2rem, 3.5vw, 3.5rem);
     color: var(--accent-color);
     display: inline-block;
+
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 1vw, 1.25rem);
     color: var(--text-light);
     max-width: 700px;
     margin-bottom: 2.5rem;
@@ -598,6 +633,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-badge {
+    font-family: var(--font-mono);
     position: absolute;
     top: -12px;
     right: 20px;
@@ -856,9 +892,59 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive */
 @media (max-width: 768px) {
+    /* Show hamburger button on mobile */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Hide menu by default on mobile */
     .nav-menu {
-        gap: 1rem;
-        font-size: 0.9rem;
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        background: white;
+        flex-direction: column;
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        align-items: flex-start;
+    }
+    
+    /* Show menu when active */
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    /* Make nav items full width on mobile */
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+    
+    /* Make CTA button full width on mobile */
+    .nav-cta {
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Shorten logo on mobile */
+    .nav-logo {
+        font-size: 1.2rem;
+    }
+    
+    .logo-extra {
+        display: none;
     }
     
     .hero {
